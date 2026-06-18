@@ -12,28 +12,34 @@ There is a one-stop page that always refers to the latest version of the JDK: <h
 
 1\. Go to <https://jdk.java.net/>.
 
-2\. Click on the "JDK 22" link, <https://jdk.java.net/22/>.
+2\. Click on the "JDK 26" link, <https://jdk.java.net/26/>.
 
-3\. Then, click on "zip" link next to "Windows/x64 ", <https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_windows-x64_bin.zip>.
+3\. Then, click on "zip" link next to "Windows/x64", <https://download.java.net/java/GA/jdk26.0.1/458fda22e4c54d5ba572ab8d2b22eb83/8/GPL/openjdk-26.0.1_windows-x64_bin.zip>.
 
-4\. Unzip the file `openjdk-22.0.2_windows-x64_bin.zip` into the folder `C:\Users\{Username}\AppData\Local\Programs`, it will create the sub-folder `jdk-22.0.2` in it.
+4\. Unzip the file `openjdk-26.0.1_windows-x64_bin.zip` into the folder `C:\Users\{Username}\AppData\Local\Programs`, it will create the sub-folder `jdk-26.0.1` in it.
 
 > ***Note:*** You may have to create the sub-folder `Programs` within the folder `C:\Users\{Username}\AppData\Local`.
 
 5\. Open a _Command Prompt_ and type the following command:
 
 ```text
-setx JAVA_HOME "%PATH%;C:\Users\{Username}\AppData\Local\Programs\jdk-22.0.2`
+rundll32 sysdm.cpl, EditEnvironmentVariables
 ```
 
-```text
-setx PATH %JAVA_HOME%\bin;%PATH%
-```
+It will open a "Environment Variables" window.
 
-6\. To verify the installtion, close the _Command Prompt_, open a new one, and type the following commands:
+6\. Within the "User variables for {Username}" section, click on the "New..." button, type `JAVA_HOME` in the "Variable name" edit box, type `C:\Users\{Username}\AppData\Local\Programs\jdk-26.0.1` in the "Variable value" edit box, and click on the "OK" button.
+
+7\. Still within the "User variables for {Username}" section, scroll down to locate the `Path` variable, click on it, and click on the "Edit..." button, it will open a "Edit environment variable" dialog box.
+
+8\. Click on the "New" button, type `%JAVA_HOME%\bin`, and click on the OK button.
+
+9\. Click on the "OK" button of the "Environment Variables" window.
+
+10\. To verify the installtion, close your current _Command Prompt_, open a new one, and type the following commands:
 
 ```text
-java -version
+java --version
 ```
 
 ```text
